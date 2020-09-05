@@ -1,0 +1,1 @@
+module.exports = {mongoURI : "mongodb+srv://rikin:rikin409@rikscluster1.rvxsn.mongodb.net/liftersDB?retryWrites=true&w=majority"}

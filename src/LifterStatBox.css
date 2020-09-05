@@ -1,0 +1,86 @@
+.LB h1{
+    color: #0a2247;
+    text-shadow: 2px 2px 2px grey;
+    font-size: 35px;
+    margin: 0px;
+}
+h2{
+    font-size: 28px;
+    margin: 0px;
+}
+h3{
+    font-size: 25px;
+    margin: 0px;
+}
+.LB{
+    padding: 30px;
+    box-shadow: 0px 0px 10px grey;
+    border-radius: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: white;
+    display: block;
+    height: auto;
+    text-align: center;
+}
+
+
+.T{
+    margin: 0px;
+    font-weight: bold;
+}
+
+.black-bold{
+    color: black;
+}
+.grey{
+    color: grey;
+}
+
+
+@media screen and (max-width: 700px) {
+
+    h3{
+    font-size: 20px;
+    }
+    .LB{
+        margin: 20px;
+        height: 25%;
+        display: block;
+        padding-top: 10px;
+    }
+    .name{
+        display: block;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .stats{
+        display: block;
+        justify-content: space-around;
+        height: 50%;
+    }
+    .weights{
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .stat{
+        display: block;
+    }
+    hr{
+        margin: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .T{
+        font-size: 25px;
+        font-weight: normal;
+    }
+    .total .stat{
+        padding: 0px;
+    }
+    p{
+        margin: 0;
+    }
+}
