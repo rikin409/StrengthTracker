@@ -14,7 +14,7 @@ function App() {
     }, []);
     
     const getData = async () => {
-        const response = await fetch(`3.13.91.221:5000/api/swoldiers`);
+        const response = await fetch(`ec2-3-13-91-221.us-east-2.compute.amazonaws.com:5000/api/swoldiers`);
         const data = await response.json();
         setLifters(data);
     };
