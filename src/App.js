@@ -14,7 +14,7 @@ function App() {
     }, []);
     
     const getData = async () => {
-        const response = await fetch(`http://localhost:5000/api/swoldiers`);
+        const response = await fetch(`http://ec2-18-218-34-136.us-east-2.compute.amazonaws.com:5000/api/swoldiers`);
         const data = await response.json();
         setLifters(data);
     };
