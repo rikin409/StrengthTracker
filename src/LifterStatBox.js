@@ -17,7 +17,7 @@ function LifterStatBox({name, maxBench, maxSquat, maxDeadlift, ID}) {
     }
     
     const putData = async (params) => {
-        const response = await fetch(`http://localhost:5000/api/swoldiers`, {
+        const response = await fetch(`http://ec2-18-218-34-136.us-east-2.compute.amazonaws.com:5000/api/swoldiers`, {
                 method: `PUT`,
                 mode:`cors`,
                 headers: {
