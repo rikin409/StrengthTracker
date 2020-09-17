@@ -1,8 +1,11 @@
 import React,{useState, useEffect} from 'react';
 import './LifterStatBox.css';
+import { Button, Fade} from 'reactstrap';
 //import { Alert } from 'reactstrap';
 
 function LifterStatBox({name, maxBench, maxSquat, maxDeadlift, ID}) {
+    const [fadeIn, setFadeIn] = useState(false);
+    const toggle = () => setFadeIn(!fadeIn);
     const [Bench, setBench] = useState(parseInt(maxBench));
     const [Squat, setSquat] = useState(parseInt(maxSquat));
     const [Deadlift, setDeadlift] = useState(parseInt(maxDeadlift));
@@ -46,32 +49,33 @@ function LifterStatBox({name, maxBench, maxSquat, maxDeadlift, ID}) {
                     <h3 onClick={()=>{const B = parseInt(prompt('Enter New Bench'));  
                                           if(!isNaN(B)){setBench(B);putData({"_id": personID, "maxBench": B});}
                                          }}>Max Bench</h3>
-                    <p>{Bench}</p>
+                    <p><Fade in={fadeIn}>{Bench}</Fade></p>
                     </div>
                 
                     <div className="stat">
                         <h3 onClick={()=>{const S = parseInt(prompt('Enter New Squat'));  
                                           if(!isNaN(S)){setSquat(S);putData({"_id": personID, "maxSquat": S});}
                                          }}>Max Squat</h3>
-                        <p>{Squat}</p>
+                        <p><Fade in={fadeIn}>{Squat}</Fade></p>
                     </div>
                 
                     <div className="stat">
                         <h3 onClick={()=>{const D = parseInt(prompt('Enter New Deadlift'));  
                                           if(!isNaN(D)){setDeadlift(D);putData({"_id": personID, "maxDeadlift": D});}
                                          }}>Max Deadlift</h3>
-                        <p>{Deadlift}</p>
+                        <p><Fade in={fadeIn}>{Deadlift}</Fade></p>
                     </div>
                 </div>
                 <hr/>
                 <div className="total">
                     <div className="stat">
                     <p className="T">Total</p>
-                    <h2 className={getStrong() ? "black-bold" : "grey"}>{getTotal()}</h2>
+                    <Fade in={fadeIn}><h2 className={getStrong() ? "black-bold" : "grey"}>{getTotal()}</h2></Fade>
                     </div>
-                
                 </div>
-                
+                <Button color="primary" className="Button" onClick={toggle}>
+                    Show Weights
+                </Button>
             </div>
         
     </div>
