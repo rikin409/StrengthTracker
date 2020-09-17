@@ -44,7 +44,7 @@ function LifterStatBox({name, maxBench, maxSquat, maxDeadlift, ID}) {
                 <div className="weights">
                     <div className="stat">
                     <h3 onClick={()=>{const B = parseInt(prompt('Enter New Bench'));  
-                                          if(!isNaN(B)){setSquat(B);putData({"_id": personID, "maxBench": B});}
+                                          if(!isNaN(B)){setBench(B);putData({"_id": personID, "maxBench": B});}
                                          }}>Max Bench</h3>
                     <p>{Bench}</p>
                     </div>
@@ -58,7 +58,7 @@ function LifterStatBox({name, maxBench, maxSquat, maxDeadlift, ID}) {
                 
                     <div className="stat">
                         <h3 onClick={()=>{const D = parseInt(prompt('Enter New Deadlift'));  
-                                          if(!isNaN(D)){setSquat(D);putData({"_id": personID, "maxDeadlift": D});}
+                                          if(!isNaN(D)){setDeadlift(D);putData({"_id": personID, "maxDeadlift": D});}
                                          }}>Max Deadlift</h3>
                         <p>{Deadlift}</p>
                     </div>
