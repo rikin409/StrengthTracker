@@ -52,12 +52,15 @@ router.delete('/', function(req, res){
 
 
 router.put('/', function(request, response){
-    var ID = request.body._id;
-    var tempSwoldierNotModeled = request.body;
-    Swoldier.updateMany({_id: ID}, {$set: tempSwoldierNotModeled}, function(err,xxx){
+    else{
+        var ID = request.body._id;
+        var tempSwoldierNotModeled = request.body;
+        Swoldier.updateMany({_id: ID}, {$set: tempSwoldierNotModeled}, function(err,xxx){
             if(err){response.status(500).send({error:"Could not save person"});}
             else{response.send(xxx);}
         });
+    }
+    
     
 });
 

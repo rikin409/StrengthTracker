@@ -52,11 +52,9 @@ function LifterStatBox({name, maxBench, maxSquat, maxDeadlift, ID}) {
                     </div>
                 
                     <div className="stat">
-                        <h3 onClick={()=>{const S = parseInt(prompt('Enter New Squat')); setSquat(S); putData({
-                                "_id": personID,
-                                "maxSquat": S,
-                                }
-                            );}}>Max Squat</h3>
+                        <h3 onClick={()=>{const S = parseInt(prompt('Enter New Squat'));  
+                                          if(!isNaN(S)){setSquat(S);putData({"_id": personID, "maxSquat": S});}
+                                         }}>Max Squat</h3>
                         <p>{Squat}</p>
                     </div>
                 
