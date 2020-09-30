@@ -3,15 +3,18 @@ import React, {useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import LifterStatBox from './LifterStatBox';
-import Header from './Header'
+import Header from './Header';
+import ModalExample from './modal';
 
 function App() {
+    
+    
     
     const [lifters, setLifters] = useState([]);
     
     useEffect(()=>{
         getData();
-    }, []);
+    });
     
     const getData = async () => {
         const response = await fetch(`http://riksdomain.com:5000/api/swoldiers`);
@@ -19,18 +22,34 @@ function App() {
         setLifters(data);
     };
     
+    const deleteData = async (params) => {
+        const response = await fetch(`http://riksdomain.com:5000/api/swoldiers`, {
+                method: `DELETE`,
+                mode:`cors`,
+                headers: {
+                    'Accept':'application/json',
+                    'Content-Type':'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify(params)
+            });
+        const data = await response.json();
+    };
     
   return (
       <div>
-          <Header />
-            <div className="statLine">
+            <Header />
           
+          
+            <div className="statLine">
             {lifters.map(lifter =>(
-              <LifterStatBox key={lifter.name} name={lifter.name} maxBench={lifter.maxBench} maxSquat={lifter.maxSquat} maxDeadlift={lifter.maxDeadlift} ID={lifter._id}/>
+              <LifterStatBox deleteFunction={deleteData} key={lifter.name} name={lifter.name} ID={lifter._id}/>
               ))}
             </div>
-      
-      
+            
+            <div className="addLine">
+                <ModalExample></ModalExample>
+                
+            </div>
       
       
       

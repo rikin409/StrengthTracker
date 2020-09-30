@@ -5,8 +5,14 @@ const router = express.Router();
 const Swoldier = require('./Swoldier');
 
 router.get('/', function(req, res){
-
+    
     Swoldier.find()
+        .then(xxx => res.json(xxx)); 
+});
+
+router.put('/ID', function(req, res){
+    var ID = req.body._id;
+    Swoldier.find({_id: ID})
         .then(xxx => res.json(xxx)); 
 });
 

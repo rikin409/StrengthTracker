@@ -25,7 +25,9 @@ h3{
     width: 20%;
 }
 
-
+.deleteBTN{
+    margin-top: 3%;
+}
 .T{
     margin: 0px;
     font-weight: bold;
@@ -38,16 +40,20 @@ h3{
     color: grey;
 }
 .Button{
+    color:gainsboro;
     margin-top: 10px;
     background-color: #0a2247;
     width: 75%;
     padding: 3px;
     border: 0px;
+    border-radius: 5%;
+    margin-top: 20px;
+    margin-bottom: 0px;
 }
 .Button:hover{
     background-color: white;
     color: #0a2247;
-    font-weight: bold;
+    transition: ease 0.5s;
 }
 
 @media screen and (max-width: 700px) {
