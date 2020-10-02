@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import './LifterStatBox.css';
 import ModalExample from './modal';
-import { Button, Fade } from 'reactstrap';
+import { Button, Fade, Progress } from 'reactstrap';
 import ModalStat from './modalStat';
 //import { Alert } from 'reactstrap';
 
@@ -105,12 +105,15 @@ function LifterStatBox({deleteFunction, name, ID}) {
                     <p className="T">Total</p>
                     <h2 className={getStrong() ? "black-bold" : "grey"}>{getTotal()}</h2>
                 </div>
+                
+                
+                <Progress animated color="dark" className="bar" value={getTotal()/10}/>
             </div>
                 
                 
         </div>
             
-        <button className="Button  " onClick={()=>deleteFunction({"_id": personID})}>Delete</button>
+        <button  className="Button  " onClick={()=>deleteFunction({"_id": personID})}>Delete</button>
             
         </Fade>
     </div>

@@ -4,16 +4,9 @@
     display: flex;
     justify-content: space-around;
     margin: 0px;
-    margin-top: 50px;
+    margin-top: 25px;
 }
-.addLine{
-    width:100%;
-    display: flex;
-    justify-content: space-around;
-    margin: 0px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
+
 body{
     background: gainsboro;
 }
@@ -23,7 +16,7 @@ body{
 
     .statLine{
         display: block;
-        margin-top: 50px;
+       
     }
     
 }
