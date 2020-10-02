@@ -46,13 +46,10 @@ function App() {
               ))}
             </div>
             
-            <div className="addLine">
-                <ModalExample></ModalExample>
+            
                 
-            </div>
-      
-      
-      
+             
+
       </div>
     
   );

@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import './LifterStatBox.css';
 import ModalExample from './modal';
 import { Button, Fade } from 'reactstrap';
+import ModalStat from './modalStat';
 //import { Alert } from 'reactstrap';
 
 function LifterStatBox({deleteFunction, name, ID}) {
@@ -46,6 +47,10 @@ function LifterStatBox({deleteFunction, name, ID}) {
         setDeadlift(data[0].maxDeadlift);
     };
     
+    function runGet(){
+        getData({"_id": personID});
+    }
+    
     //put request to chnage some of the lifter data
     const putData = async (params) => {
         const response = await fetch(`http://riksdomain.com:5000/api/swoldiers`, {
@@ -68,51 +73,48 @@ function LifterStatBox({deleteFunction, name, ID}) {
     
     return (
     <div className = "LB">
+        <Fade in={true}>
         <div className="name">
             <h1>{name}</h1>
         </div>   
         <hr /> 
             
-            <div className="stats">
+        <div className="stats">
                 
-                <div className="weights">
-                    
-                    <div className="stat">
-                        <h3 onClick={()=>{const B = parseInt(prompt('Enter New Bench'));  
-                                              if(!isNaN(B)){putData({"_id": personID, "maxBench": B});}
-                                             }}>Max Bench</h3>
-                        <p><Fade in={true}>{Bench}</Fade></p>
-                    </div>
-                
-                    <div className="stat">
-                        <h3 onClick={()=>{const S = parseInt(prompt('Enter New Squat'));  
-                                          if(!isNaN(S)){putData({"_id": personID, "maxSquat": S});}
-                                         }}>Max Squat</h3>
-                        <p><Fade in={true}>{Squat}</Fade></p>
-                    </div>
-                    
-                    <div className="stat">
-                        <h3 onClick={()=>{const D = parseInt(prompt('Enter New Deadlift'));  
-                                          if(!isNaN(D)){putData({"_id": personID, "maxDeadlift": D});}
-                                         }}>Max Deadlift</h3>
-                        <p><Fade in={true}>{Deadlift}</Fade></p>
-                    </div>
-                    
+            <div className="weights">
+
+                <div className="stat">
+                    <ModalStat ID={personID} Workout="Bench" refresh={runGet}></ModalStat>
+                    <p>{Bench}</p>
                 </div>
-                <hr/>
-                <div className="total">
-                    <div className="stat">
-                    <p className="T">Total</p>
-                    <Fade><h2 className={getStrong() ? "black-bold" : "grey"}>{getTotal()}</h2></Fade>
-                    </div>
+
+                <div className="stat">
+                    <ModalStat ID={personID} Workout="Squat" refresh={runGet}></ModalStat>
+                    <p>{Squat}</p>
                 </div>
-                
-                
+
+                <div className="stat">
+                    <ModalStat ID={personID} Workout="Deadlift" refresh={runGet}></ModalStat>
+                    <p>{Deadlift}</p>
+                </div>
+
             </div>
+            <hr/>
+            <div className="total">
+                <div className="stat">
+                    <p className="T">Total</p>
+                    <h2 className={getStrong() ? "black-bold" : "grey"}>{getTotal()}</h2>
+                </div>
+            </div>
+                
+                
+        </div>
             
-            <button className="Button  " onClick={()=>deleteFunction({"_id": personID})}>Delete</button>
+        <button className="Button  " onClick={()=>deleteFunction({"_id": personID})}>Delete</button>
             
+        </Fade>
     </div>
+    
   );
 }
 

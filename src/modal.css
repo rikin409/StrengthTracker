@@ -15,23 +15,53 @@
 
 .addBTN{
     
-    color:#0a2247;
+    color:gainsboro;
     font-weight: bold;
-    margin-top: 10px;
-    background-color: gainsboro;
+    background-color: #0a2247;
     width: 100%;
-    padding: 3px;
+    padding: 5px;
     border-radius: 5%;
-    margin-top: 20px;
     margin-bottom: 0px;
     border-style: solid;
-    border-color: #0a2247;
+    border-color: gainsboro;
 }
 .addBTN:hover{
-    background-color: #0a2247;
-    color: gainsboro;
+    background-color: gainsboro;
+    color: #0a2247;
     transition: ease 0.5s;
 }
 .noM{
     margin: 0;
+}
+
+.submitBTN{
+    color:gainsboro;
+    margin-top: 10px;
+    background-color: #0a2247;
+    width: 70%;
+    padding: 3px;
+    border: 0px;
+    border-radius: 5%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.submitBTN:hover{
+    background-color: white;
+    color: #0a2247;
+    transition: ease 0.5s;
+}
+
+.modalBody{
+    display: block;
+}
+.modal-content{
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: gainsboro 0px 0px 10px ;
+}
+
+@media screen and (max-width: 800px) {
+
+    
+    
 }

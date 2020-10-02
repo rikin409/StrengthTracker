@@ -69,7 +69,7 @@ function ModalExample ({toggleFunction}) {
                     <input type="text" onChange={deadliftChange}></input>
                     <p>{newDeadlift}</p>
                     
-                    <input type="submit" className = "Button"/>
+                    <input type="submit" className = "submitBTN"/>
                     
                 </form>
             </ModalBody>
