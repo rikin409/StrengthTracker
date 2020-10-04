@@ -1,0 +1,31 @@
+body{
+    background-color: gainsboro;
+}
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.statLine{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0px;
+    padding-top: 25px;
+    padding-bottom: 30px;
+}
+
+
+
+
+@media screen and (max-width: 700px) {
+
+    .statLine{
+        display: block;
+       
+    }
+    
+}

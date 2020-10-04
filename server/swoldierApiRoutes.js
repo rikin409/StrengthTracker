@@ -5,7 +5,6 @@ const router = express.Router();
 const Swoldier = require('./Swoldier');
 
 router.get('/', function(req, res){
-    
     Swoldier.find()
         .then(xxx => res.json(xxx)); 
 });

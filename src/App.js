@@ -1,56 +1,36 @@
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Fade, Progress, Container, Row, Col } from 'reactstrap';
 import './App.css';
-import LifterStatBox from './LifterStatBox';
+import LifterList from './LifterList';
 import Header from './Header';
-import ModalExample from './modal';
+import Footer from './Footer';
+import Welcome from './Welcome';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+
+
 
 function App() {
     
-    
-    
-    const [lifters, setLifters] = useState([]);
-    
-    useEffect(()=>{
-        getData();
-    });
-    
-    const getData = async () => {
-        const response = await fetch(`http://riksdomain.com:5000/api/swoldiers`);
-        const data = await response.json();
-        setLifters(data);
-    };
-    
-    const deleteData = async (params) => {
-        const response = await fetch(`http://riksdomain.com:5000/api/swoldiers`, {
-                method: `DELETE`,
-                mode:`cors`,
-                headers: {
-                    'Accept':'application/json',
-                    'Content-Type':'application/json; charset=UTF-8',
-                },
-                body: JSON.stringify(params)
-            });
-        const data = await response.json();
-    };
+   
     
   return (
       <div>
-            <Header />
+          
+        <Header/>
+        
+          
+        <BrowserRouter>
+            <Route path="/" exact component={Welcome}/>
+            <Route path="/list" exact component={LifterList}/>
+        </BrowserRouter>
           
           
-            <div className="statLine">
-            {lifters.map(lifter =>(
-              <LifterStatBox deleteFunction={deleteData} key={lifter.name} name={lifter.name} ID={lifter._id}/>
-              ))}
-            </div>
-            
-            
-                
-             
 
+        
       </div>
+      
     
   );
 }

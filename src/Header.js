@@ -1,5 +1,8 @@
 
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
+
+
 
 import {
   Collapse,
@@ -30,7 +33,10 @@ function Header(){
     return(
         <div>
       <Navbar>
+          
             <NavbarBrand className="title">1000LB Club</NavbarBrand>
+          
+            
             
             <Nav>
                 <h3 onClick={toggle}>Login</h3>

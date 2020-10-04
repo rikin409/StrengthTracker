@@ -72,52 +72,52 @@ function LifterStatBox({deleteFunction, name, ID}) {
     
     
     return (
-    <div className = "LB">
-        <Fade in={true}>
-        <div className="name">
-            <h1>{name}</h1>
-        </div>   
-        <hr /> 
+        
+        <div className = "LB">
+        
+            <div className="name">
+                <h1>{name}</h1>
+            </div>   
+            <hr /> 
+
+            <div className="stats">
+
+                <div className="weights">
+
+                    <div className="stat">
+                        <ModalStat ID={personID} Workout="Bench" refresh={runGet}></ModalStat>
+                        <p>{Bench}</p>
+                    </div>
+
+                    <div className="stat">
+                        <ModalStat ID={personID} Workout="Squat" refresh={runGet}></ModalStat>
+                        <p>{Squat}</p>
+                    </div>
+
+                    <div className="stat">
+                        <ModalStat ID={personID} Workout="Deadlift" refresh={runGet}></ModalStat>
+                        <p>{Deadlift}</p>
+                    </div>
+
+                </div>
+                <hr/>
+                <div className="total">
+                    <div className="stat">
+                        <p className="T">Total</p>
+                        <h2 className={getStrong() ? "black-bold" : "grey"}>{getTotal()}</h2>
+                    </div>
+
+
+                    <Progress animated color="dark" className="bar" value={getTotal()/10}/>
+                </div>
+
+            </div>
+
+            <button  className="Button  " onClick={()=>deleteFunction({"_id": personID})}>Delete</button>
             
-        <div className="stats">
-                
-            <div className="weights">
-
-                <div className="stat">
-                    <ModalStat ID={personID} Workout="Bench" refresh={runGet}></ModalStat>
-                    <p>{Bench}</p>
-                </div>
-
-                <div className="stat">
-                    <ModalStat ID={personID} Workout="Squat" refresh={runGet}></ModalStat>
-                    <p>{Squat}</p>
-                </div>
-
-                <div className="stat">
-                    <ModalStat ID={personID} Workout="Deadlift" refresh={runGet}></ModalStat>
-                    <p>{Deadlift}</p>
-                </div>
-
-            </div>
-            <hr/>
-            <div className="total">
-                <div className="stat">
-                    <p className="T">Total</p>
-                    <h2 className={getStrong() ? "black-bold" : "grey"}>{getTotal()}</h2>
-                </div>
-                
-                
-                <Progress animated color="dark" className="bar" value={getTotal()/10}/>
-            </div>
-                
-                
+        
         </div>
-            
-        <button  className="Button  " onClick={()=>deleteFunction({"_id": personID})}>Delete</button>
-            
-        </Fade>
-    </div>
-    
+        
   );
 }
 
